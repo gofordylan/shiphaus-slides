@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiphaus NS #1</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+  <style>
+    :root {
+      --r-background-color: #FAFAF8;
+      --r-main-color: #1A1A1A;
+      --r-heading-color: #1A1A1A;
+      --r-link-color: #FF6B35;
+      --accent: #FF6B35;
+    }
+    .reveal {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-weight: 700;
+      text-transform: none;
+    }
+    .reveal h1 { font-size: 2.5em; }
+    .reveal h2 { font-size: 1.8em; }
+    .reveal h3 { font-size: 1.4em; color: #666; }
+    .reveal .accent { color: var(--accent); }
+    .reveal .big { font-size: 3em; font-weight: 700; }
+    .reveal .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5em 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.9em;
+    }
+    .reveal .schedule-time { 
+      color: var(--accent); 
+      font-weight: 600;
+      min-width: 120px;
+    }
+    .reveal ul { 
+      list-style: none; 
+      padding: 0;
+      text-align: left;
+    }
+    .reveal li { 
+      padding: 0.4em 0; 
+      padding-left: 1.5em;
+      position: relative;
+    }
+    .reveal li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    .reveal .highlight-box {
+      background: linear-gradient(135deg, #FF6B35 0%, #FF8F65 100%);
+      color: white;
+      padding: 1em 1.5em;
+      border-radius: 12px;
+      margin: 0.5em 0;
+    }
+    .reveal .cta-link {
+      background: var(--accent);
+      color: white;
+      padding: 0.6em 1.2em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1em;
+    }
+    .slide-number { display: none; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      
+      <!-- Title Slide -->
+      <section>
+        <h1>Shiphaus 🚀</h1>
+        <h3>Ship your own project in 3 hours</h3>
+        <p style="margin-top: 2em; color: #666;">Network School · Feb 13, 2025</p>
+      </section>
+
+      <!-- Schedule -->
+      <section>
+        <h2>Today's Schedule</h2>
+        <div style="max-width: 500px; margin: 1em auto;">
+          <div class="schedule-item">
+            <span class="schedule-time">10:00 - 10:15</span>
+            <span>Intro & Onboard</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">10:15 - 10:30</span>
+            <span>Getting Started</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">10:30 - 12:30</span>
+            <span>Build 🔨</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">12:30 - 1:00</span>
+            <span>Try Each Other's Stuff</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Me -->
+      <section>
+        <h2>Who am I?</h2>
+        <p style="font-size: 1.3em; margin: 1em 0;">Dylan</p>
+        <ul style="max-width: 600px; margin: 0 auto;">
+          <li>Building WannaBet & Shiphaus</li>
+          <li>Started using Claude Code <span class="accent">6 weeks ago</span></li>
+          <li>Not a professional developer</li>
+          <li>Proof that you can learn this quickly</li>
+        </ul>
+        <p style="margin-top: 1.5em; font-size: 1.2em;">If I can do it, you can do it.</p>
+      </section>
+
+      <!-- What is Shiphaus -->
+      <section>
+        <h2>What is Shiphaus?</h2>
+        <p style="font-size: 1.3em;">Dedicated building time with builders who help you ship.</p>
+        <ul style="max-width: 600px; margin: 1em auto;">
+          <li>All skill levels welcome</li>
+          <li>Learn Claude Code (the magic tool)</li>
+          <li>Leave with something deployed</li>
+        </ul>
+      </section>
+
+      <!-- DYAC -->
+      <section>
+        <h2 class="big">DYAC</h2>
+        <p style="font-size: 1.5em; margin-top: 1em;">Did You Ask Claude?</p>
+        <p style="color: #666; margin-top: 1em;">When you're stuck, this is step 1.<br>Paste the error. Describe what you want.<br>Claude will help.</p>
+      </section>
+
+      <!-- Good First Project -->
+      <section>
+        <h2>What makes a good first project?</h2>
+        <ul style="max-width: 600px; margin: 1em auto;">
+          <li>Small scope (2 hours max)</li>
+          <li>Something you actually want</li>
+          <li>Simple is better</li>
+          <li>A landing page, a tool, a game</li>
+        </ul>
+        <p style="margin-top: 1em; color: #666;">You can always add more later. Ship first.</p>
+      </section>
+
+      <!-- Idea Generation -->
+      <section>
+        <h2>Idea Generation</h2>
+        <p style="font-size: 1.2em;">Ask yourself:</p>
+        <div class="highlight-box" style="max-width: 600px; margin: 1em auto;">
+          What wasn't possible before because of constraints, but is possible now?
+        </div>
+        <ul style="max-width: 600px; margin: 1em auto;">
+          <li>That side project you never had time for</li>
+          <li>That tool you wished existed</li>
+          <li>That thing you'd hire a developer to build</li>
+        </ul>
+      </section>
+
+      <!-- Tips for Prompting -->
+      <section>
+        <h2>Tips for Claude Code</h2>
+        <ul style="max-width: 600px; margin: 1em auto;">
+          <li>Be specific about what you want</li>
+          <li>Give context (what you're building, why)</li>
+          <li>Paste errors directly back to Claude</li>
+          <li>Ask it to explain if you're confused</li>
+          <li>Start simple, then iterate</li>
+        </ul>
+      </section>
+
+      <!-- When Stuck -->
+      <section>
+        <h2>When You're Stuck</h2>
+        <p style="font-size: 1.3em; margin: 1em 0;">The Loop:</p>
+        <div style="font-size: 1.2em;">
+          <p>1. Try something</p>
+          <p>2. Read the error</p>
+          <p>3. Paste to Claude</p>
+          <p>4. Repeat</p>
+        </div>
+        <p style="margin-top: 1em; color: var(--accent); font-weight: 600;">This is 90% of the work.</p>
+      </section>
+
+      <!-- Submit Your Project -->
+      <section>
+        <h2>Submit Your Project</h2>
+        <p style="font-size: 1.2em;">When you ship, add it to the Shiphaus site!</p>
+        <p style="margin: 1em 0;">
+          <a href="https://shiphaus.org/chapter/malaysia" class="cta-link" target="_blank">shiphaus.org/chapter/malaysia</a>
+        </p>
+        <p style="color: #666; margin-top: 1em;">Show off what you built. Inspire others.</p>
+      </section>
+
+      <!-- Resources -->
+      <section>
+        <h2>Resources</h2>
+        <ul style="max-width: 600px; margin: 1em auto; font-size: 0.95em;">
+          <li>Claude Pro: <a href="https://claude.ai/upgrade" target="_blank">claude.ai/upgrade</a> ($20/mo)</li>
+          <li>Shiphaus: <a href="https://shiphaus.org" target="_blank">shiphaus.org</a></li>
+          <li>Questions? Find Dylan or raise your hand</li>
+        </ul>
+      </section>
+
+      <!-- Let's Go -->
+      <section>
+        <h2 class="big">Let's Ship 🚀</h2>
+        <p style="font-size: 1.3em; margin-top: 1em;">You have 2 hours.<br>Make something real.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'slide',
+      controls: true,
+      progress: true,
+      center: true,
+    });
+  </script>
+</body>
+</html>
