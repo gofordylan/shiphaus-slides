@@ -4,72 +4,296 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shiphaus NS #1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/black.css">
   <style>
     :root {
-      --r-background-color: #FAFAF8;
-      --r-main-color: #1A1A1A;
-      --r-heading-color: #1A1A1A;
-      --r-link-color: #FF6B35;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --text-primary: #f5f5f0;
+      --text-muted: #8888a0;
       --accent: #FF6B35;
+      --accent-glow: rgba(255, 107, 53, 0.3);
     }
+    
+    body {
+      background: var(--bg-primary);
+    }
+    
     .reveal {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
     }
-    .reveal h1, .reveal h2, .reveal h3 {
-      font-weight: 700;
-      text-transform: none;
-    }
-    .reveal h1 { font-size: 2.5em; }
-    .reveal h2 { font-size: 1.8em; }
-    .reveal h3 { font-size: 1.4em; color: #666; }
-    .reveal .accent { color: var(--accent); }
-    .reveal .big { font-size: 3em; font-weight: 700; }
-    .reveal .schedule-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5em 0;
-      border-bottom: 1px solid #eee;
-      font-size: 0.9em;
-    }
-    .reveal .schedule-time { 
-      color: var(--accent); 
-      font-weight: 600;
-      min-width: 120px;
-    }
-    .reveal ul { 
-      list-style: none; 
-      padding: 0;
+    
+    .reveal .slides {
       text-align: left;
     }
-    .reveal li { 
-      padding: 0.4em 0; 
-      padding-left: 1.5em;
-      position: relative;
+    
+    .reveal .slides section {
+      padding: 40px 60px;
     }
+    
+    /* Noise texture overlay */
+    .reveal::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    
+    /* Big industrial headlines */
+    .reveal h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 6em;
+      letter-spacing: 0.02em;
+      line-height: 0.9;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      margin: 0;
+    }
+    
+    .reveal h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5em;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      margin-bottom: 0.5em;
+    }
+    
+    .reveal h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 400;
+    }
+    
+    .reveal p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
+    
+    .reveal .accent { color: var(--accent); }
+    
+    /* Monospace tags */
+    .reveal .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.3em 0.8em;
+      display: inline-block;
+      margin-bottom: 1em;
+      letter-spacing: 0.1em;
+    }
+    
+    /* Schedule styling */
+    .reveal .schedule {
+      display: grid;
+      gap: 0;
+      max-width: 600px;
+      margin-top: 1.5em;
+    }
+    
+    .reveal .schedule-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 1em 0;
+    }
+    
+    .reveal .schedule-time {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 0.9em;
+    }
+    
+    .reveal .schedule-item {
+      color: var(--text-primary);
+      font-size: 1.1em;
+    }
+    
+    /* Lists */
+    .reveal ul {
+      list-style: none;
+      padding: 0;
+      margin: 1em 0;
+    }
+    
+    .reveal li {
+      padding: 0.6em 0;
+      padding-left: 2em;
+      position: relative;
+      color: var(--text-primary);
+      font-size: 1.1em;
+    }
+    
     .reveal li::before {
-      content: "→";
+      content: "//";
+      font-family: 'JetBrains Mono', monospace;
       color: var(--accent);
       position: absolute;
       left: 0;
+      opacity: 0.8;
     }
+    
+    /* Big number accent */
+    .reveal .big-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12em;
+      line-height: 0.8;
+      color: var(--accent);
+      opacity: 0.15;
+      position: absolute;
+      right: 60px;
+      top: 50px;
+    }
+    
+    /* Highlight box - industrial style */
     .reveal .highlight-box {
-      background: linear-gradient(135deg, #FF6B35 0%, #FF8F65 100%);
-      color: white;
-      padding: 1em 1.5em;
-      border-radius: 12px;
-      margin: 0.5em 0;
+      background: linear-gradient(135deg, var(--accent) 0%, #ff8855 100%);
+      color: #000;
+      padding: 1.5em 2em;
+      font-size: 1.3em;
+      font-weight: 600;
+      max-width: 600px;
+      margin: 1.5em 0;
+      position: relative;
     }
-    .reveal .cta-link {
+    
+    .reveal .highlight-box::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
       background: var(--accent);
-      color: white;
-      padding: 0.6em 1.2em;
-      border-radius: 8px;
+      opacity: 0.3;
+      z-index: -1;
+      filter: blur(20px);
+    }
+    
+    /* CTA Button */
+    .reveal .cta {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--accent);
+      color: #000;
+      padding: 1em 2em;
       text-decoration: none;
       display: inline-block;
-      margin-top: 1em;
+      font-weight: 600;
+      font-size: 0.9em;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+      border: none;
     }
+    
+    .reveal .cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--accent);
+    }
+    
+    /* The Loop visual */
+    .reveal .loop-step {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      padding: 0.8em 0;
+      font-size: 1.3em;
+    }
+    
+    .reveal .loop-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2em;
+      color: var(--accent);
+      width: 60px;
+    }
+    
+    /* Diagonal stripe accent */
+    .stripe-accent {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 107, 53, 0.1) 10px,
+        rgba(255, 107, 53, 0.1) 20px
+      );
+      pointer-events: none;
+    }
+    
+    /* Title slide special */
+    .title-slide h1 {
+      font-size: 8em;
+      background: linear-gradient(180deg, var(--text-primary) 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .title-slide .subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4em;
+      color: var(--text-muted);
+      margin-top: 0.5em;
+      letter-spacing: 0.05em;
+    }
+    
+    .title-slide .meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      color: var(--accent);
+      margin-top: 3em;
+      letter-spacing: 0.1em;
+    }
+    
+    /* DYAC special */
+    .dyac-slide h2 {
+      font-size: 10em;
+      background: linear-gradient(135deg, var(--accent) 0%, #ffaa00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Final slide */
+    .final-slide h2 {
+      font-size: 5em;
+    }
+    
+    /* Fragment animations */
+    .reveal .slides section .fragment {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+    
+    .reveal .slides section .fragment.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Hide controls styling */
+    .reveal .controls { color: var(--accent); }
+    .reveal .progress span { background: var(--accent); }
     .slide-number { display: none; }
   </style>
 </head>
@@ -77,54 +301,61 @@
   <div class="reveal">
     <div class="slides">
       
-      <!-- Title Slide -->
-      <section>
-        <h1>Shiphaus 🚀</h1>
-        <h3>Ship your own project in 3 hours</h3>
-        <p style="margin-top: 2em; color: #666;">Network School · Feb 13, 2025</p>
+      <!-- Title -->
+      <section class="title-slide">
+        <h1>SHIPHAUS</h1>
+        <p class="subtitle">Ship your own project in 3 hours</p>
+        <p class="meta">NETWORK SCHOOL // FEB 13, 2025</p>
+        <div class="stripe-accent"></div>
       </section>
 
       <!-- Schedule -->
       <section>
-        <h2>Today's Schedule</h2>
-        <div style="max-width: 500px; margin: 1em auto;">
-          <div class="schedule-item">
-            <span class="schedule-time">10:00 - 10:15</span>
-            <span>Intro & Onboard</span>
+        <span class="tag">SCHEDULE</span>
+        <h2>TODAY</h2>
+        <div class="schedule">
+          <div class="schedule-row">
+            <span class="schedule-time">10:00</span>
+            <span class="schedule-item">Intro & Onboard</span>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">10:15 - 10:30</span>
-            <span>Getting Started</span>
+          <div class="schedule-row">
+            <span class="schedule-time">10:15</span>
+            <span class="schedule-item">Getting Started</span>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">10:30 - 12:30</span>
-            <span>Build 🔨</span>
+          <div class="schedule-row">
+            <span class="schedule-time">10:30</span>
+            <span class="schedule-item">BUILD 🔨</span>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">12:30 - 1:00</span>
-            <span>Try Each Other's Stuff</span>
+          <div class="schedule-row">
+            <span class="schedule-time">12:30</span>
+            <span class="schedule-item">Try Each Other's Stuff</span>
           </div>
         </div>
       </section>
 
       <!-- About Me -->
       <section>
-        <h2>Who am I?</h2>
-        <p style="font-size: 1.3em; margin: 1em 0;">Dylan</p>
-        <ul style="max-width: 600px; margin: 0 auto;">
+        <span class="tag">WHO AM I</span>
+        <h2>DYLAN</h2>
+        <ul>
           <li>Building WannaBet & Shiphaus</li>
-          <li>Started using Claude Code <span class="accent">6 weeks ago</span></li>
+          <li>Started Claude Code <span class="accent">6 weeks ago</span></li>
           <li>Not a professional developer</li>
-          <li>Proof that you can learn this quickly</li>
         </ul>
-        <p style="margin-top: 1.5em; font-size: 1.2em;">If I can do it, you can do it.</p>
+        <p style="margin-top: 2em; font-size: 1.4em; color: var(--text-primary);">
+          If I can do it, <span class="accent">you can do it.</span>
+        </p>
+        <span class="big-num">01</span>
       </section>
 
       <!-- What is Shiphaus -->
       <section>
-        <h2>What is Shiphaus?</h2>
-        <p style="font-size: 1.3em;">Dedicated building time with builders who help you ship.</p>
-        <ul style="max-width: 600px; margin: 1em auto;">
+        <span class="tag">THE CONCEPT</span>
+        <h2>WHAT IS<br>SHIPHAUS?</h2>
+        <p style="font-size: 1.4em; color: var(--text-primary); margin: 1em 0;">
+          Dedicated building time with builders who help you ship.
+        </p>
+        <ul>
           <li>All skill levels welcome</li>
           <li>Learn Claude Code (the magic tool)</li>
           <li>Leave with something deployed</li>
@@ -132,42 +363,50 @@
       </section>
 
       <!-- DYAC -->
-      <section>
-        <h2 class="big">DYAC</h2>
-        <p style="font-size: 1.5em; margin-top: 1em;">Did You Ask Claude?</p>
-        <p style="color: #666; margin-top: 1em;">When you're stuck, this is step 1.<br>Paste the error. Describe what you want.<br>Claude will help.</p>
+      <section class="dyac-slide" data-background-color="#0a0a0f">
+        <h2>DYAC</h2>
+        <h3>DID YOU ASK CLAUDE?</h3>
+        <p style="margin-top: 2em;">
+          When you're stuck, this is step 1.<br>
+          Paste the error. Describe what you want.<br>
+          Claude will help.
+        </p>
       </section>
 
       <!-- Good First Project -->
       <section>
-        <h2>What makes a good first project?</h2>
-        <ul style="max-width: 600px; margin: 1em auto;">
+        <span class="tag">SCOPE</span>
+        <h2>GOOD FIRST<br>PROJECT</h2>
+        <ul>
           <li>Small scope (2 hours max)</li>
           <li>Something you actually want</li>
           <li>Simple is better</li>
           <li>A landing page, a tool, a game</li>
         </ul>
-        <p style="margin-top: 1em; color: #666;">You can always add more later. Ship first.</p>
+        <p style="margin-top: 1.5em;">
+          You can always add more later. <span class="accent">Ship first.</span>
+        </p>
       </section>
 
       <!-- Idea Generation -->
       <section>
-        <h2>Idea Generation</h2>
-        <p style="font-size: 1.2em;">Ask yourself:</p>
-        <div class="highlight-box" style="max-width: 600px; margin: 1em auto;">
+        <span class="tag">IDEAS</span>
+        <h2>WHAT TO BUILD?</h2>
+        <div class="highlight-box">
           What wasn't possible before because of constraints, but is possible now?
         </div>
-        <ul style="max-width: 600px; margin: 1em auto;">
+        <ul>
           <li>That side project you never had time for</li>
           <li>That tool you wished existed</li>
           <li>That thing you'd hire a developer to build</li>
         </ul>
       </section>
 
-      <!-- Tips for Prompting -->
+      <!-- Tips -->
       <section>
-        <h2>Tips for Claude Code</h2>
-        <ul style="max-width: 600px; margin: 1em auto;">
+        <span class="tag">PROMPTING</span>
+        <h2>TIPS FOR<br>CLAUDE CODE</h2>
+        <ul>
           <li>Be specific about what you want</li>
           <li>Give context (what you're building, why)</li>
           <li>Paste errors directly back to Claude</li>
@@ -176,43 +415,67 @@
         </ul>
       </section>
 
-      <!-- When Stuck -->
+      <!-- The Loop -->
       <section>
-        <h2>When You're Stuck</h2>
-        <p style="font-size: 1.3em; margin: 1em 0;">The Loop:</p>
-        <div style="font-size: 1.2em;">
-          <p>1. Try something</p>
-          <p>2. Read the error</p>
-          <p>3. Paste to Claude</p>
-          <p>4. Repeat</p>
+        <span class="tag">PROCESS</span>
+        <h2>THE LOOP</h2>
+        <div style="margin-top: 1.5em;">
+          <div class="loop-step">
+            <span class="loop-num">01</span>
+            <span>Try something</span>
+          </div>
+          <div class="loop-step">
+            <span class="loop-num">02</span>
+            <span>Read the error</span>
+          </div>
+          <div class="loop-step">
+            <span class="loop-num">03</span>
+            <span>Paste to Claude</span>
+          </div>
+          <div class="loop-step">
+            <span class="loop-num">04</span>
+            <span>Repeat</span>
+          </div>
         </div>
-        <p style="margin-top: 1em; color: var(--accent); font-weight: 600;">This is 90% of the work.</p>
+        <p style="margin-top: 1.5em; font-size: 1.3em; color: var(--accent);">
+          This is 90% of the work.
+        </p>
       </section>
 
-      <!-- Submit Your Project -->
+      <!-- Submit -->
       <section>
-        <h2>Submit Your Project</h2>
-        <p style="font-size: 1.2em;">When you ship, add it to the Shiphaus site!</p>
-        <p style="margin: 1em 0;">
-          <a href="https://shiphaus.org/chapter/malaysia" class="cta-link" target="_blank">shiphaus.org/chapter/malaysia</a>
+        <span class="tag">SHIP IT</span>
+        <h2>SUBMIT YOUR<br>PROJECT</h2>
+        <p style="font-size: 1.3em; color: var(--text-primary); margin: 1em 0;">
+          When you ship, add it to the Shiphaus site.
         </p>
-        <p style="color: #666; margin-top: 1em;">Show off what you built. Inspire others.</p>
+        <a href="https://shiphaus.org/chapter/malaysia" class="cta" target="_blank">
+          SHIPHAUS.ORG/CHAPTER/MALAYSIA →
+        </a>
+        <p style="margin-top: 2em;">
+          Show off what you built. Inspire others.
+        </p>
       </section>
 
       <!-- Resources -->
       <section>
-        <h2>Resources</h2>
-        <ul style="max-width: 600px; margin: 1em auto; font-size: 0.95em;">
-          <li>Claude Pro: <a href="https://claude.ai/upgrade" target="_blank">claude.ai/upgrade</a> ($20/mo)</li>
-          <li>Shiphaus: <a href="https://shiphaus.org" target="_blank">shiphaus.org</a></li>
+        <span class="tag">LINKS</span>
+        <h2>RESOURCES</h2>
+        <ul>
+          <li>Claude Pro: <span class="accent">claude.ai/upgrade</span> ($20/mo)</li>
+          <li>Shiphaus: <span class="accent">shiphaus.org</span></li>
           <li>Questions? Find Dylan or raise your hand</li>
         </ul>
       </section>
 
-      <!-- Let's Go -->
-      <section>
-        <h2 class="big">Let's Ship 🚀</h2>
-        <p style="font-size: 1.3em; margin-top: 1em;">You have 2 hours.<br>Make something real.</p>
+      <!-- Final -->
+      <section class="final-slide" data-background-color="#0a0a0f">
+        <h2>LET'S SHIP</h2>
+        <p style="font-size: 1.5em; color: var(--text-primary); margin-top: 1em;">
+          You have 2 hours.<br>
+          Make something real.
+        </p>
+        <div class="stripe-accent"></div>
       </section>
 
     </div>
@@ -222,10 +485,13 @@
   <script>
     Reveal.initialize({
       hash: true,
-      transition: 'slide',
+      transition: 'fade',
+      transitionSpeed: 'fast',
       controls: true,
       progress: true,
-      center: true,
+      center: false,
+      width: 1280,
+      height: 720,
     });
   </script>
 </body>
