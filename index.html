@@ -25,10 +25,10 @@
     }
     
     .reveal .slides { text-align: left; }
-    .reveal .slides section { padding: 60px 80px; }
+    .reveal .slides section { padding: 80px 140px; }
     
     .reveal h1 {
-      font-size: 3.5em;
+      font-size: 3em;
       font-weight: 700;
       color: var(--text);
       margin: 0 0 0.3em 0;
@@ -36,7 +36,7 @@
     }
     
     .reveal h2 {
-      font-size: 2.2em;
+      font-size: 2em;
       font-weight: 700;
       color: var(--text);
       margin: 0 0 0.5em 0;
@@ -44,7 +44,7 @@
     }
     
     .reveal p {
-      font-size: 1.1em;
+      font-size: 1em;
       line-height: 1.5;
       color: var(--muted);
       margin: 0.5em 0;
@@ -69,9 +69,9 @@
     }
     
     .reveal li {
-      padding: 0.3em 0;
+      padding: 0.25em 0;
       color: var(--text);
-      font-size: 1em;
+      font-size: 0.95em;
     }
     
     .reveal li::before {
@@ -107,7 +107,7 @@
     }
     
     .reveal .big {
-      font-size: 4em;
+      font-size: 3.5em;
       font-weight: 700;
       color: var(--accent);
       line-height: 1;
@@ -132,8 +132,14 @@
     .reveal .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3em;
+      gap: 2.5em;
       align-items: center;
+      margin-top: 0.5em;
+    }
+    
+    .reveal .two-col img {
+      max-height: 350px;
+      object-fit: contain;
     }
     
     .reveal .controls { color: var(--accent); }
@@ -147,8 +153,8 @@
       <!-- Title -->
       <section>
         <h1>Shiphaus</h1>
-        <p style="font-size: 1.3em; color: var(--text);">Ship your own project in 3 hours</p>
-        <p style="margin-top: 2em;">Network School · Feb 13, 2025</p>
+        <p style="font-size: 1.2em; color: var(--text);">Ship your own project in 3 hours</p>
+        <p style="margin-top: 1.5em;">Network School · Feb 13, 2025</p>
       </section>
 
       <!-- Schedule -->
@@ -181,14 +187,14 @@
         <h2>Dylan</h2>
         <div class="two-col">
           <div>
-            <p style="color: var(--text); font-size: 1.2em; margin: 0;">Senior Vibe Coder</p>
-            <p style="margin-top: 1em;">CPA by trade. Zero developer background.</p>
-            <p style="color: var(--text); font-size: 1.2em; margin-top: 1.5em;">
+            <p style="color: var(--text); font-size: 1.1em; margin: 0;">Senior Vibe Coder</p>
+            <p style="margin-top: 0.8em;">CPA by trade. Zero developer background.</p>
+            <p style="color: var(--text); font-size: 1.1em; margin-top: 1.2em;">
               If I can learn, <span class="accent">you can too.</span>
             </p>
           </div>
           <div>
-            <img src="github-contributions.png" alt="GitHub contributions showing Dec 30 - the day I discovered Claude Code">
+            <img src="github-contributions.png" alt="GitHub contributions">
           </div>
         </div>
       </section>
@@ -199,15 +205,15 @@
         <h2>What is Shiphaus?</h2>
         <div class="two-col">
           <div>
-            <p style="color: var(--text); font-size: 1.3em; line-height: 1.4;">
+            <p style="color: var(--text); font-size: 1.15em; line-height: 1.4;">
               Everyone in this room creates a live project.
             </p>
-            <p style="margin-top: 1em;">
+            <p style="margin-top: 0.8em;">
               Ideate, Plan, and Ship — all in one day.
             </p>
           </div>
           <div>
-            <img src="shiphaus-site.png" alt="Shiphaus website" style="max-height: 400px; object-fit: contain;">
+            <img src="shiphaus-site.png" alt="Shiphaus website">
           </div>
         </div>
       </section>
@@ -231,8 +237,8 @@
       <!-- DYAC -->
       <section>
         <p class="big">DYAC</p>
-        <p style="font-size: 1.3em; color: var(--text); margin-top: 0.5em;">Did You Ask Claude?</p>
-        <p style="margin-top: 1.5em;">
+        <p style="font-size: 1.2em; color: var(--text); margin-top: 0.5em;">Did You Ask Claude?</p>
+        <p style="margin-top: 1.2em;">
           When you're stuck, this is step 1.<br>
           Paste the error. Describe what you want.
         </p>
@@ -255,13 +261,13 @@
       <section>
         <span class="label">Process</span>
         <h2>The Loop</h2>
-        <p style="color: var(--text); font-size: 1.2em; margin: 1em 0;">
+        <p style="color: var(--text); font-size: 1.1em; margin: 0.8em 0; line-height: 1.8;">
           1. Try something<br>
           2. Read the error<br>
           3. Paste to Claude<br>
           4. Repeat
         </p>
-        <p style="margin-top: 1.5em; color: var(--accent); font-size: 1.1em;">This is 90% of the work.</p>
+        <p style="margin-top: 1.2em; color: var(--accent);">This is 90% of the work.</p>
       </section>
 
       <!-- Submit -->
@@ -287,8 +293,8 @@
 
       <!-- Final -->
       <section>
-        <h2 style="font-size: 2.5em;">Let's Ship</h2>
-        <p style="font-size: 1.3em; color: var(--text); margin-top: 0.5em;">
+        <h2 style="font-size: 2.2em;">Let's Ship</h2>
+        <p style="font-size: 1.2em; color: var(--text); margin-top: 0.5em;">
           You have 2 hours.<br>
           Make something real.
         </p>
