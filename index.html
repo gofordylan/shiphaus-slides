@@ -25,10 +25,10 @@
     }
     
     .reveal .slides { text-align: left; }
-    .reveal .slides section { padding: 60px 100px; }
+    .reveal .slides section { padding: 60px 80px; }
     
     .reveal h1 {
-      font-size: 4em;
+      font-size: 3.5em;
       font-weight: 700;
       color: var(--text);
       margin: 0 0 0.3em 0;
@@ -36,7 +36,7 @@
     }
     
     .reveal h2 {
-      font-size: 2.5em;
+      font-size: 2.2em;
       font-weight: 700;
       color: var(--text);
       margin: 0 0 0.5em 0;
@@ -54,7 +54,7 @@
     
     .reveal .label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.75em;
+      font-size: 0.7em;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -69,7 +69,7 @@
     }
     
     .reveal li {
-      padding: 0.35em 0;
+      padding: 0.3em 0;
       color: var(--text);
       font-size: 1em;
     }
@@ -93,20 +93,21 @@
     .reveal .schedule-time {
       font-family: 'DM Mono', monospace;
       color: var(--accent);
-      width: 80px;
+      width: 120px;
     }
     
     .reveal .highlight {
       background: var(--accent);
       color: #000;
-      padding: 1em 1.5em;
+      padding: 0.8em 1.2em;
       font-weight: 500;
       margin: 1em 0;
-      max-width: 500px;
+      max-width: 550px;
+      font-size: 1.1em;
     }
     
     .reveal .big {
-      font-size: 5em;
+      font-size: 4em;
       font-weight: 700;
       color: var(--accent);
       line-height: 1;
@@ -123,17 +124,16 @@
       margin-top: 1em;
     }
     
-    .reveal .step {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      padding: 0.4em 0;
+    .reveal img {
+      max-width: 100%;
+      border-radius: 8px;
     }
     
-    .reveal .step-num {
-      font-family: 'DM Mono', monospace;
-      color: var(--accent);
-      font-size: 1.2em;
+    .reveal .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3em;
+      align-items: center;
     }
     
     .reveal .controls { color: var(--accent); }
@@ -144,61 +144,91 @@
   <div class="reveal">
     <div class="slides">
       
+      <!-- Title -->
       <section>
         <h1>Shiphaus</h1>
         <p style="font-size: 1.3em; color: var(--text);">Ship your own project in 3 hours</p>
         <p style="margin-top: 2em;">Network School · Feb 13, 2025</p>
       </section>
 
+      <!-- Schedule -->
       <section>
         <span class="label">Schedule</span>
         <h2>Today</h2>
         <div class="schedule">
           <div class="schedule-row">
-            <span class="schedule-time">10:00</span>
-            <span>Intro & Onboard</span>
+            <span class="schedule-time">10:00 – 10:15</span>
+            <span>Intro</span>
           </div>
           <div class="schedule-row">
-            <span class="schedule-time">10:15</span>
-            <span>Getting Started</span>
+            <span class="schedule-time">10:15 – 10:30</span>
+            <span>Idea Generation & Get Everyone Onboard</span>
           </div>
           <div class="schedule-row">
-            <span class="schedule-time">10:30</span>
-            <span>Build</span>
+            <span class="schedule-time">10:30 – 12:30</span>
+            <span>Build & Submit</span>
           </div>
           <div class="schedule-row">
-            <span class="schedule-time">12:30</span>
+            <span class="schedule-time">12:30 – 1:00</span>
             <span>Try Each Other's Stuff</span>
           </div>
         </div>
       </section>
 
+      <!-- Who am I -->
       <section>
         <span class="label">Who am I</span>
         <h2>Dylan</h2>
-        <ul>
-          <li>Building WannaBet & Shiphaus</li>
-          <li>Started Claude Code <span class="accent">6 weeks ago</span></li>
-          <li>Not a professional developer</li>
-        </ul>
-        <p style="margin-top: 1.5em; color: var(--text); font-size: 1.2em;">
-          If I can do it, you can do it.
-        </p>
+        <div class="two-col">
+          <div>
+            <p style="color: var(--text); font-size: 1.2em; margin: 0;">Senior Vibe Coder</p>
+            <p style="margin-top: 1em;">CPA by trade. Zero developer background.</p>
+            <p style="color: var(--text); font-size: 1.2em; margin-top: 1.5em;">
+              If I can learn, <span class="accent">you can too.</span>
+            </p>
+          </div>
+          <div>
+            <img src="github-contributions.png" alt="GitHub contributions showing Dec 30 - the day I discovered Claude Code">
+          </div>
+        </div>
       </section>
 
+      <!-- What is Shiphaus -->
       <section>
         <span class="label">The Concept</span>
         <h2>What is Shiphaus?</h2>
-        <p style="color: var(--text); font-size: 1.2em; margin: 0.8em 0;">
-          Dedicated building time with builders who help you ship.
-        </p>
+        <div class="two-col">
+          <div>
+            <p style="color: var(--text); font-size: 1.3em; line-height: 1.4;">
+              Everyone in this room creates a live project.
+            </p>
+            <p style="margin-top: 1em;">
+              Ideate, Plan, and Ship — all in one day.
+            </p>
+          </div>
+          <div>
+            <img src="shiphaus-site.png" alt="Shiphaus website" style="max-height: 400px; object-fit: contain;">
+          </div>
+        </div>
+      </section>
+
+      <!-- Idea Generation -->
+      <section>
+        <span class="label">Ideas</span>
+        <h2>What to Build?</h2>
+        <div class="highlight">
+          What wasn't possible before because of constraints, but is possible now?
+        </div>
         <ul>
-          <li>All skill levels welcome</li>
-          <li>Learn Claude Code (the magic tool)</li>
-          <li>Leave with something deployed</li>
+          <li>A personal website or portfolio</li>
+          <li>A tool you wished existed</li>
+          <li>A simple game</li>
+          <li>An automation for your life</li>
+          <li>Something you'd hire a developer to build</li>
         </ul>
       </section>
 
+      <!-- DYAC -->
       <section>
         <p class="big">DYAC</p>
         <p style="font-size: 1.3em; color: var(--text); margin-top: 0.5em;">Did You Ask Claude?</p>
@@ -208,55 +238,33 @@
         </p>
       </section>
 
-      <section>
-        <span class="label">Scope</span>
-        <h2>Good First Project</h2>
-        <ul>
-          <li>Small scope (2 hours max)</li>
-          <li>Something you actually want</li>
-          <li>Simple is better</li>
-          <li>A landing page, a tool, a game</li>
-        </ul>
-        <p style="margin-top: 1em;">Ship first. Add more later.</p>
-      </section>
-
-      <section>
-        <span class="label">Ideas</span>
-        <h2>What to Build?</h2>
-        <div class="highlight">
-          What wasn't possible before because of constraints, but is possible now?
-        </div>
-        <ul>
-          <li>That side project you never had time for</li>
-          <li>That tool you wished existed</li>
-          <li>That thing you'd hire a developer to build</li>
-        </ul>
-      </section>
-
+      <!-- Tips -->
       <section>
         <span class="label">Prompting</span>
         <h2>Tips for Claude Code</h2>
         <ul>
           <li>Be specific about what you want</li>
-          <li>Give context (what, why)</li>
+          <li>Give context (what you're building, why)</li>
           <li>Paste errors directly back</li>
           <li>Ask it to explain if confused</li>
           <li>Start simple, iterate</li>
         </ul>
       </section>
 
+      <!-- The Loop -->
       <section>
         <span class="label">Process</span>
         <h2>The Loop</h2>
-        <div style="margin-top: 1em;">
-          <div class="step"><span class="step-num">01</span> Try something</div>
-          <div class="step"><span class="step-num">02</span> Read the error</div>
-          <div class="step"><span class="step-num">03</span> Paste to Claude</div>
-          <div class="step"><span class="step-num">04</span> Repeat</div>
-        </div>
-        <p style="margin-top: 1.5em; color: var(--accent);">This is 90% of the work.</p>
+        <p style="color: var(--text); font-size: 1.2em; margin: 1em 0;">
+          1. Try something<br>
+          2. Read the error<br>
+          3. Paste to Claude<br>
+          4. Repeat
+        </p>
+        <p style="margin-top: 1.5em; color: var(--accent); font-size: 1.1em;">This is 90% of the work.</p>
       </section>
 
+      <!-- Submit -->
       <section>
         <span class="label">Ship It</span>
         <h2>Submit Your Project</h2>
@@ -266,6 +274,7 @@
         </a>
       </section>
 
+      <!-- Resources -->
       <section>
         <span class="label">Links</span>
         <h2>Resources</h2>
@@ -276,8 +285,9 @@
         </ul>
       </section>
 
+      <!-- Final -->
       <section>
-        <h2 style="font-size: 3em;">Let's Ship</h2>
+        <h2 style="font-size: 2.5em;">Let's Ship</h2>
         <p style="font-size: 1.3em; color: var(--text); margin-top: 0.5em;">
           You have 2 hours.<br>
           Make something real.
